@@ -1,38 +1,183 @@
-.App {
+/* Include the styles from your original CSS file */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right bottom, #08203e, #557c93);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  width: 80%;
+  max-width: 850px;
+  padding: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-decoration: underline;
+  text-underline-offset: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.question {
+  font-size: 26px;
+  margin-top: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.choices {
+  margin-top: 20px;
+}
+
+.choice {
+  font-size: 20px;
+  background-color: #eee;
+  color: #000;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  width: 60%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.choice:hover {
+  background-color: #ddd;
+}
+
+.choice.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn {
+  width: 60%;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 110px;
+  /* margin: 20px auto 0; */
+  background-color: #006400;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #08780c;
+}
+
+.scoreCard {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.alert {
+  background-color: #5d9b63;
+  border-radius: 5px;
+  width: 100%;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+.startBtn {
+  width: 15%;
+  padding-block: 20px;
+  text-align: center;
+}
+
+.timer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #08203e;
+  border: 2px solid #f00;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 12px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  animation: pulse 1s ease-in-out infinite;
 }
 
-.App-link {
-  color: #61dafb;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #000;
+}
+
+.modal h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 18px;
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .container h1 {
+    font-size: 24px;
+  }
+  .question {
+    font-size: 22px;
+  }
+
+  .timer {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .startBtn {
+    width: 50%;
   }
 }
